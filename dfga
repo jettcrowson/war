@@ -1,0 +1,14 @@
+classes:
+    - Card
+        - Suit
+        - Value
+    - Deck
+        - Shuffle
+        - Deal
+    - Game ()
+        - Play
+        - Reset
+    - Hand (winnings, cards)
+
+
+
