@@ -7,4 +7,8 @@ class Card
         @value = value
     end
 
+    def to_s
+        "# #{value} of #{suit}"
+    end
+
 end

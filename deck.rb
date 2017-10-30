@@ -2,25 +2,30 @@ require "./card.rb"
 
 class Deck
 
-    attr_reader :cards
+    attr_accessor :cards
 
     def initialize()
         @cards = []
         suits = ["Club", "Spade", "Heart", "Diamond"]
 
         suits.each do |suit|
-            for i in 1..14
-                cards.push(Card.new(suit, i + 1))
+            for i in 1..13
+                self.cards.push(Card.new(suit, i))
             end
         end
     end
 
     def shuffle_cards()
-        @cards = @cards.shuffle
+        self.cards = cards.shuffle()
     end
 
     def split()
-        return [@cards[0..25], @cards[26..51]]
+        shuffle_cards()
+        return [self.cards[0..25], self.cards[26..51]]
+    end
+
+    def to_s
+        cards.each{ |card| puts card }
     end
 
 end
