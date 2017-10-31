@@ -6,7 +6,7 @@ class Deck
 
     def initialize()
         @cards = []
-        suits = ["Club", "Spade", "Heart", "Diamond"]
+        suits = ["Clubs", "Spades", "Hearts", "Diamonds"]
 
         suits.each do |suit|
             for i in 1..13

@@ -8,7 +8,7 @@ class Card
     end
 
     def to_s
-        "# #{value} of #{suit}"
+        "#{value} of #{suit}"
     end
 
 end

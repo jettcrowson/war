@@ -9,4 +9,3 @@ player2 = Hand.new(deck.split[1])
 game = Game.new(player1, player2)
 
 puts game
-

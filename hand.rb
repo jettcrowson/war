@@ -23,6 +23,10 @@ class Hand
 	def shuffle_hand()
 		self.cards = cards.shuffle
 	end
+
+	def absorb_pot(pot)
+		pot.each{ |card| cards.push(card)}
+	end
 	
 	def to_s
 		str = []
