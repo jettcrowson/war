@@ -8,7 +8,22 @@ class Card
     end
 
     def to_s
-        "#{value} of #{suit}"
+			val = ""
+
+			case value
+				when 1
+					val = "Ace"
+				when 11
+					val = "Jack"
+				when 12
+					val = "Queen"
+				when 13
+					val = "King"
+				else
+					val = value
+			end
+
+        return "#{val} of #{suit}"
     end
 
 end
