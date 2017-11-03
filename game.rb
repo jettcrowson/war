@@ -1,5 +1,6 @@
 require "./deck"
 require "./pot"
+require 'io/console'
 
 class Game
 
@@ -70,10 +71,13 @@ class Game
 
     #called when each player draws the same value card
     def war()
-
+        puts "You draw a #{card1}"
+        STDIN.getch  
+        puts "Your opponent draws a #{card2}"
+        STDIN.getch 
         puts "----- War! -----"
-        puts "Player 1: #{card1} | Player 2: #{card2}"
-
+        STDIN.getch 
+        
         #The war loop runs until the cards they draw are not equal to each other
         at_war = true
 
@@ -82,7 +86,7 @@ class Game
             #If hand1 does not have enough cards to go to war
             if hand1.cards_length(hand1.cards) <= 2
 
-                puts "Player 1 doesn't have enough cards to go into war. Player 2 wins."
+                puts "You don't have enough cards to go into war. Your opponent wins!"
 
                 #transfer all of hand1's cards to the pot, and then let hand2 win the pot
                 hand1.cards.each{ |card| pot.add(hand1.top_card)}
@@ -100,7 +104,7 @@ class Game
             #Repeat for hand2
             elsif hand2.cards_length(hand2.cards) <= 2
 
-                puts "Player 2 doesn't have enough cards to go into war. Player 1 wins."
+                puts "Your opponent doesn't have enough cards to go into war. You win."
 
                 hand2.cards.each{ |card| pot.add(hand2.top_card)}
                 win_pot(hand1)
@@ -124,9 +128,10 @@ class Game
 
             end
                 
-            puts "Player 1 draws a card and places it in the pot. He draws another card, the #{pot.player1.to_s}"
-            puts "Player 2 draws a card and places it in the pot. He draws another card, the #{pot.player2.to_s}"
-
+            puts "You draw a card and place it in the pot. You draw another card, the #{pot.player1.to_s}"
+            STDIN.getch 
+            puts "Your opponent draws a card and places it in the pot. He draws another card, the #{pot.player2.to_s}"
+            STDIN.getch 
             #If the cards being compared are not equal to each other
             if compare_cards(pot.player1, pot.player2) != 0
 
@@ -137,8 +142,8 @@ class Game
                     self.round_winner = 1
                     win_pot(hand1)
 
-                    puts "Player 1 wins this round of war!"
-                
+                    puts "You win this round of war!"
+                    STDIN.getch 
                 #If hand2's card is higher
                 else
 
@@ -146,8 +151,8 @@ class Game
                     self.round_winner = 2
                     win_pot(hand2)
 
-                    puts "Player 2 wins this round of war!"
-
+                    puts "Your opponent wins this round of war!"
+                    STDIN.getch 
                 end
 
                 #If the cards are not equal, end the war
@@ -156,7 +161,7 @@ class Game
             end
 
         end
-
+         puts  "You have #{hand1.cards.length} cards | Your opponent has #{hand2.cards.length} cards "
         puts "----- End War -----"
     
     end
