@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    io-console (0.4.6)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  io-console
+
+BUNDLED WITH
+   1.15.4
